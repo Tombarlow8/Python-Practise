@@ -150,27 +150,31 @@ def std_dev(value_list):
     sqr_m = mean_value(sqr_d)
     return math.sqrt(sqr_m)
 
-def Summary(value_list):
-    size = len(value_list)
-    mv = mean_value(value_list)
-    mdv = median_value(value_list)
-    rv = range_value(value_list)    
-    sd = std_dev(value_list)
-    iqr = interquartile_range(value_list)
-    hq = higher_quartile(value_list)
-    lq = lower_quartile(value_list) 
-    print(f"min: {min(value_list)}\nmax: {max(value_list)}")
-    print(f"mean: {mv}\nmedian: {mdv}\nrange: {rv}")
-    print(f"lower quartile: {lq}\nhigher quartile: {hq}\ninter quartile range: {iqr}")
-    print(f"standard deviation: {sd}")
-    print(f"size of data set: {size}")
-#endregion
-# my_list = [51,60,60,60,70,70,70,70,75,75,75,75,75,75,75,76,80,80,80,80,85,90,90,90,90,90,95,95,99,99]
-my_list_2 = [8,3,2,6,4,1,5,7]
-my_list_3 = [321,321,350,350,354,367,367,367,378,378,387,387,398,398,625]
+def summary(value_list):
+    summary_dict = {
+        "size" : len(value_list),
+        "min" : min(value_list),
+        "max" : max(value_list),
+        "mean" : mean_value(value_list),
+        "median" : median_value(value_list), 
+        "range" : range_value(value_list),
+        "inter_quartile_range" : interquartile_range(value_list), 
+        "lower_quartile" : lower_quartile(value_list), 
+        "higher_quartile" : higher_quartile(value_list),    
+        "standard_deviation" : std_dev(value_list), 
+        }
+    return summary_dict
 
+#endregion
+
+
+# # For testing
+# my_list = [51,60,60,60,70,70,70,70,75,75,75,75,75,75,75,76,80,80,80,80,85,90,90,90,90,90,95,95,99,99]
+# my_list_2 = [8,3,2,6,4,1,5,7]
+# my_list_3 = [321,321,350,350,354,367,367,367,378,378,387,387,398,398,325]
 # my_list_4 = [1,2,4,6,7]
-print(Summary(my_list_3))
+# for key, value in summary(my_list_3).items():
+#     print(f"{key}: {value}")
 # print(value_by_perc(10,600))
 # print(percentage_of(10,12))
 # print(perc_dif(100,80))
